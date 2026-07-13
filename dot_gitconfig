@@ -1,0 +1,16 @@
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+[user]
+	name = Oli
+	email = oliviercillo@gmail.com
+[core]
+	editor = nvim
+[push]
+	followTags = true
+[pull]
+	rebase = true
+[init]
+	defaultBranch = main
