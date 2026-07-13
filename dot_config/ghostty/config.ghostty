@@ -1,0 +1,14 @@
+# This is the configuration file for Ghostty.
+#
+# It uses XDG configuration Path:
+#   ~/.config/ghostty/config.ghostty
+
+
+theme = dark:one-dark-pro-monokai-darker,light:Ayu Light
+macos-icon = paper
+
+font-family = Berkeley Mono
+font-style = Bold
+
+keybind = shift+enter=text:\x1b\r
+keybind = shift+super+.=equalize_splits
