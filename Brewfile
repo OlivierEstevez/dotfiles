@@ -106,6 +106,8 @@ cask "ghostty"
 cask "keycastr"
 # Quick Look generator for Markdown files
 cask "qlmarkdown"
+# Multiplayer code editor
+cask "zed"
 vscode "adobe.extendscript-debug"
 vscode "astro-build.astro-vscode"
 vscode "bierner.markdown-preview-github-styles"
