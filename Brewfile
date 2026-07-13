@@ -59,6 +59,8 @@ brew "libpq"
 brew "neovim"
 # Small build system for use with gyp or CMake
 brew "ninja"
+# Manage multiple Node.js versions
+brew "nvm"
 # 7-Zip (high compression file archiver) implementation
 brew "p7zip"
 # Framework for layout and rendering of i18n text
@@ -93,6 +95,8 @@ brew "whisper-cpp"
 brew "youtube-dl"
 # Feature-rich command-line audio/video downloader
 brew "yt-dlp"
+# Fish shell like syntax highlighting for zsh
+brew "zsh-syntax-highlighting"
 # Display management tool
 cask "betterdisplay"
 cask "font-hack-nerd-font"

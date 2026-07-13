@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+set -eu
+
+ZSH_CUSTOM="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"
+
+mkdir -p "$ZSH_CUSTOM/plugins"
+mkdir -p "$HOME/dev"
+
+clone_if_missing() {
+    local repo="$1"
+    local dir="$2"
+
+    if [ ! -d "$dir/.git" ]; then
+        gh repo clone "$repo" "$dir"
+    fi
+}
+
+clone_if_missing \
+    ohmyzsh/ohmyzsh \
+    "$HOME/.oh-my-zsh"
+
+clone_if_missing \
+    unixorn/fzf-zsh-plugin \
+    "$ZSH_CUSTOM/plugins/fzf-zsh-plugin"
+
+clone_if_missing \
+    lukechilds/zsh-nvm \
+    "$ZSH_CUSTOM/plugins/zsh-nvm"
+
+
+clone_if_missing \
+    olivierestevez/one-dark-pro-monokai-darker-ghostty-theme \
+    "$HOME/dev/one-dark-pro-monokai-darker-ghostty-theme"

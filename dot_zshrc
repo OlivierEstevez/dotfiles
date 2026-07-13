@@ -1,0 +1,70 @@
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+# Path to your oh-my-zsh installation.
+export ZSH="/Users/olivierestevez/.oh-my-zsh"
+
+ZSH_THEME="agnoster-oli"
+
+# Auto-setting terminal title.
+DISABLE_AUTO_TITLE="true"
+
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Plugins
+# zsh-nvm: defer loading nvm until node/npm/nvm is first used (must be set before the plugin loads)
+export NVM_LAZY_LOAD=true
+export NVM_COMPLETION=true
+plugins=(zsh-nvm fzf-zsh-plugin git)
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+source $ZSH/oh-my-zsh.sh
+
+# User configuration
+
+# Language environment
+export LANG=en_US.UTF-8
+
+# Aliases
+# Love2D
+alias love="/Applications/love.app/Contents/MacOS/love"
+
+# Disable Prompt Context (user@hostname)
+prompt_context() {}
+
+# Syntax highlighting comments on gray
+ZSH_HIGHLIGHT_STYLES[comment]='fg=8'
+
+# npm
+export PATH=~/.npm-global/bin:$PATH
+
+# pnpm
+export PNPM_HOME="/Users/olivierestevez/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig:/opt/homebrew/lib/pkgconfig:$PKG_CONFIG_PATH"
+export DYLD_LIBRARY_PATH="/usr/local/lib:/opt/homebrew/lib:$DYLD_LIBRARY_PATH"
+
+export PATH="$PATH:$HOME/.local/bin"
+
+# bun completions
+[ -s "/Users/olivierestevez/.bun/_bun" ] && source "/Users/olivierestevez/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# nvm is now handled by the zsh-nvm plugin (lazy-loaded); manual sourcing removed.
