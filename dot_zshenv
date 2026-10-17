@@ -1,0 +1,24 @@
+# Loaded by every zsh (interactive or not), so agents and scripts get the same tools as the terminal.
+
+# Homebrew
+path=(/opt/homebrew/bin /opt/homebrew/sbin $path)
+
+# Node (nvm default) — real binaries, no lazy-load stubs
+export NVM_DIR="$HOME/.nvm"
+_nvm_default="$(<"$NVM_DIR/alias/default")" 2>/dev/null
+[[ -d "$NVM_DIR/versions/node/$_nvm_default/bin" ]] && path=("$NVM_DIR/versions/node/$_nvm_default/bin" $path)
+unset _nvm_default
+
+# pnpm (pnpm itself comes from corepack in the nvm node bin; PNPM_HOME holds global installs)
+export PNPM_HOME="$HOME/Library/pnpm"
+path=($path "$PNPM_HOME" "$PNPM_HOME/bin")
+
+# Legacy npm global tools (codex, vercel, ...). Appended so nvm node/npm win.
+path=($path "$HOME/.npm-global/bin")
+
+# Corepack: never block on an interactive download prompt
+export COREPACK_ENABLE_DOWNLOAD_PROMPT=0
+export COREPACK_ENABLE_AUTO_PIN=0
+
+typeset -U path
+export PATH
